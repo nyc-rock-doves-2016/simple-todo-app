@@ -7,6 +7,14 @@ Controller.prototype.index = function() {
   this.view.drawList(this.todoList);
 };
 
+Controller.prototype.updateCompletion = function(id, complete) {
+  var target = this.todoList.find(id);
+  if(target) {
+    target.completed = complete;
+    this.view.drawList(this.todoList);
+  }
+}
+
 Controller.prototype.create = function(params) {
   var t = new Task(params);
   this.todoList.addTask(t);

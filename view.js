@@ -1,12 +1,17 @@
 function View() {
  $('#new-task-form').on('submit', this.handleFormSubmission.bind(this));
- console.log('Hello from view', $('#new-task-form').length );
+ $('#list').on('change', '.task-done', this.handleCompletionClick.bind(this));
+}
+
+View.prototype.handleCompletionClick = function(event) {
+  var id = Number(event.target.dataset.id);
+  var completed = $(event.target).prop("checked")
+  controller.updateCompletion(id, completed);
 }
 
 View.prototype.handleFormSubmission = function(event) {
   var that = this;
   event.preventDefault();
-  console.log(event);
   var params = {
     description: $('#description').val(),
     dueDate: new Date($('#dueDate').val()),
@@ -27,12 +32,11 @@ View.prototype.drawList = function(todoList) {
 
     html += '<td><input type="checkbox" class="task-done" ';
     html +=  task.completed ? " checked " : " ";
-    html += '></td>';
+    html += 'data-id="' + task.id + '" ></td>';
 
     html += '<td>';
     html += task.dueDate;
     html += '</td>';
-
 
     html += '</tr>';
   });
