@@ -22,6 +22,12 @@ TodoList.prototype.getNextId = function() {
   return 1 + max;
 };
 
+TodoList.prototype.find = function(id) {
+  return this.tasks.find(function(ele){
+    return ele == id;
+  });
+}
+
 TodoList.prototype.addTask = function(task) {
   this.tasks.push(task);
   if(!task.id) {
