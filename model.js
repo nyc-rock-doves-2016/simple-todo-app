@@ -4,7 +4,6 @@ function Task(args) {
   this.description = args.description;
   this.dueDate = args.dueDate;
   this.completed = args.completed;
-  console.log('in constructor', this);
 }
 
 function TodoList(tasks) {
