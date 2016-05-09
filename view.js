@@ -35,7 +35,7 @@ View.prototype.drawList = function(todoList) {
     html += 'data-id="' + task.id + '" ></td>';
 
     html += '<td>';
-    html += task.dueDate;
+    html += moment(task.dueDate).format('MMM Do YY [at] h:mm:ss a');
     html += '</td>';
 
     html += '</tr>';
