@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Todo App</title>
+  <script   src="https://code.jquery.com/jquery-2.2.3.js"  integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4="   crossorigin="anonymous"></script>
+  <script type="text/javascript" src="http://momentjs.com/downloads/moment.js"></script>
+  <script type="text/javascript" src="model.js"></script>
+  <script type="text/javascript" src="view.js"></script>
+  <script type="text/javascript" src="controller.js"></script>
+
+</head>
+<body>
+
+<h1>My todo list</h1>
+<div id="list"></div>
+
+<h2>Add a todo</h2>
+<form id="new-task-form">
+<label>Description</label><input name="description" id="description">
+<label>Done?</label><input type="checkbox" name="completed" id="completed">
+<label>Due date</label><input type="date" name="dueDate" id="dueDate">
+<input type="submit">
+</form>
+
+</body>
+</html>
