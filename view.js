@@ -39,5 +39,3 @@ View.prototype.drawList = function(todoList) {
   html += '</table>';
   $target.html(html);
 }
-
-window.myView = new View();
