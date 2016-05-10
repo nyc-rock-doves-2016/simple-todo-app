@@ -10,6 +10,19 @@ function TodoList(tasks) {
   this.tasks = tasks || [];
 }
 
+TodoList.all = function() {
+  var deferred = $.ajax({
+    url: 'http://localhost:3000/tasks',
+    type: 'GET',
+    dataType: 'json'
+  }).then(function(response){
+    return response.map(function(ele){
+      return new Task(ele);
+    })
+  });
+  return deferred;
+}
+
 TodoList.prototype.getNextId = function() {
 
   var max = 0;
