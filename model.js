@@ -6,6 +6,20 @@ function Task(args) {
   this.completed = args.completed;
 }
 
+Task.create = function(task) {
+  var deferred = $.ajax({
+    url: 'http://localhost:3000/tasks',
+    type: 'POST',
+    dataType: 'json',
+    data: task
+  }).then(function(response){
+    // response is the json representation
+    // of the saved task from the server
+    return new Task(response);
+  });
+  return deferred;
+}
+
 function TodoList(tasks) {
   this.tasks = tasks || [];
 }

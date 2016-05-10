@@ -21,8 +21,10 @@ Controller.prototype.updateCompletion = function(id, complete) {
 
 Controller.prototype.create = function(params) {
   var t = new Task(params);
-  this.todoList.addTask(t);
-  this.view.drawList(this.todoList);
+  Task.create(t).then(function(task){
+    this.todoList.addTask(task);  
+    this.view.drawList(this.todoList);
+  });
 };
 
 $(document).ready(function(){
