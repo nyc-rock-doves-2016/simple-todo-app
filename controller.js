@@ -3,8 +3,12 @@ function Controller(todoList, view) {
   this.view = view;
 }
 
+
 Controller.prototype.index = function() {
-  this.view.drawList(this.todoList);
+  TodoList.all().then(function(arrayOfTasks) {
+    this.todoList = new TodoList(arrayOfTasks);
+    this.view.drawList(this.todoList);
+  }.bind(this));
 };
 
 Controller.prototype.updateCompletion = function(id, complete) {
